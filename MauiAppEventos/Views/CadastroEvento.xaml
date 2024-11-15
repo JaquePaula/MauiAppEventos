@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppEventos.Views.CadastroEvento"
+             Title="CadastroEvento"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource Secondary}">
+
+    <VerticalStackLayout VerticalOptions="CenterAndExpand"
+                         Padding="6"
+                         Spacing="2">
+
+       <Label Text="Cadastro de Eventos"
+       FontFamily="OpenSans"
+       FontSize="30"
+       HorizontalOptions="Center"
+       TextColor="{StaticResource Primary}" />
+
+        <Frame Padding="6">
+            <VerticalStackLayout>
+
+
+
+                <Frame Padding="6" Margin="10" BackgroundColor="{StaticResource Secondary}">
+                    <VerticalStackLayout>
+
+                        <Label Text="Nome do Evento" />
+                        <Entry x:Name="nomeEntry" Text="{Binding Nome}" />
+
+
+                        <Label Text="Local do Evento:" />
+                        <Entry  x:Name="localEntry" Text="{Binding Local}" />
+
+
+                        <Label Text="Número de participantes:" />
+                        <Entry  x:Name="participantesEntry" Keyboard="Numeric" Text="{Binding NumeroParticipantes}" />
+
+
+                        <Label Text="Custo por participante:" />
+                        <Entry x:Name="custoEntry" Keyboard="Numeric" Text="{Binding Custo}" />
+
+
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Padding="6"
+                Margin="10"
+                BackgroundColor="{StaticResource Secondary}">
+                    <VerticalStackLayout Spacing="10">
+
+                        <Label Text="Período do Evento"
+                        TextTransform="Uppercase"
+                        FontSize="Subtitle"
+                        HorizontalOptions="Center"
+                        TextColor="{StaticResource Primary}"/>
+
+                        <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                            <Label Text="Data de inicio:" />
+                            <DatePicker x:Name="dtpck_inicio"
+                                 DateSelected="dtpck_inicio_DateSelected"
+                                 Format="dd/MM/yyyy" />
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                            <Label Text="Data de término:" />
+                            <DatePicker x:Name="dtpck_termino"
+                                 Format="dd/MM/yyyy" />
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Button 
+             Text="Ir para resumo"  
+             BackgroundColor="{StaticResource Primary}" Clicked="Button_Clicked"/>
+
+            </VerticalStackLayout>
+        </Frame>
+
+    </VerticalStackLayout>
+</ContentPage>

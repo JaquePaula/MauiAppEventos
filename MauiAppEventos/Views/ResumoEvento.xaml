@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppEventos.Views.ResumoEvento"
+             Title="ResumoEvento"
+              NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource Secondary}">
+    
+    <VerticalStackLayout VerticalOptions="CenterAndExpand"
+                         Padding="6"
+                         Spacing="2">
+        <Label 
+      Text="{Binding Nome}"
+      TextColor="{StaticResource Primary}"
+      FontFamily="OpenSans"
+      FontSize="40"
+      HorizontalTextAlignment="Center"        
+      />
+
+        <Frame Margin="10">
+
+
+            <HorizontalStackLayout  HorizontalOptions="FillAndExpand">
+
+                <Label Text="Local do Evento: " />
+                <Label Text="{Binding Local}" TextColor="{StaticResource Tertiary}"/>
+            </HorizontalStackLayout>
+
+        </Frame>
+
+        <Frame Margin="10">
+
+
+            <HorizontalStackLayout  HorizontalOptions="FillAndExpand">
+
+                <Label Text="Número de participantes: " />
+                <Label Text="{Binding NumeroParticipantes}" TextColor="{StaticResource Tertiary}"/>
+
+            </HorizontalStackLayout>
+
+        </Frame>
+
+        <Frame Margin="10">
+            <Grid ColumnDefinitions="*, *, *"
+            RowDefinitions="Auto, Auto">
+                <Label Grid.Row="0" Grid.Column="0" Text="Inicio:" />
+                <Label Grid.Row="0" Grid.Column="1" Text="Término:" />
+                <Label Grid.Row="0" Grid.Column="2" Text="Dias Totais:" />
+
+                <Label Grid.Row="1" Grid.Column="0" Text="{Binding DataInicio, StringFormat= '{}{0:dd/MM/yyyy}'}" TextColor="{StaticResource Tertiary}"/>
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding DataTermino, StringFormat= '{}{0:dd/MM/yyyy}' }" TextColor="{StaticResource Tertiary}"/>
+                <Label Grid.Row="1" Grid.Column="2" Text="{Binding DiasTotais}" TextColor="{StaticResource Tertiary}"/>
+            </Grid>
+        </Frame>
+
+        <Frame Margin="10">
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                <Label Text="Valor Total:  " />
+                <Label Text="{Binding ValorTotal, StringFormat= '{}{0:c}'}" 
+                 TextColor="{StaticResource Tertiary}"/>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <Button Text="Voltar"
+          HorizontalOptions="Center"
+           BackgroundColor= "{StaticResource Primary}"
+          Clicked="Button_Clicked" />
+    </VerticalStackLayout>
+</ContentPage>
